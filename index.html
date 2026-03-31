@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoho Mail</title>
+    <link rel="stylesheet" href="css/mail.css" />
+    <link rel="stylesheet" href="css/shared.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Left Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <span class="logo-icon">&#9993;</span>
+          <span class="logo-text">Mail</span>
+        </div>
+        <nav class="sidebar-nav">
+          <button class="nav-btn active" data-view="mail" title="Mail">
+            <span class="nav-icon">&#9993;</span>
+            <span class="nav-label">Mail</span>
+          </button>
+          <button class="nav-btn" data-view="calendar" onclick="window.location='calendar.html'" title="Calendar">
+            <span class="nav-icon">&#128197;</span>
+            <span class="nav-label">Calendar</span>
+          </button>
+          <button class="nav-btn" title="ToDo">
+            <span class="nav-icon">&#10003;</span>
+            <span class="nav-label">ToDo</span>
+          </button>
+          <button class="nav-btn" title="Notes">
+            <span class="nav-icon">&#128221;</span>
+            <span class="nav-label">Notes</span>
+          </button>
+          <button class="nav-btn" title="Contacts">
+            <span class="nav-icon">&#128100;</span>
+            <span class="nav-label">Contacts</span>
+          </button>
+          <button class="nav-btn" title="Bookmarks">
+            <span class="nav-icon">&#128278;</span>
+            <span class="nav-label">Bookmarks</span>
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Mail Panel -->
+      <div class="mail-panel">
+        <!-- Compose Button -->
+        <div class="compose-area">
+          <button class="compose-btn" id="composeBtn">
+            <span>&#9998;</span> Compose
+          </button>
+          <button class="compose-dropdown">&#9660;</button>
+        </div>
+
+        <!-- Folders -->
+        <div class="folders-section">
+          <div class="section-header">
+            <span>FOLDERS</span>
+            <div class="section-actions">
+              <button title="Filter">&#9783;</button>
+              <button title="Manage">&#9881;</button>
+              <button title="Add">+</button>
+            </div>
+          </div>
+          <ul class="folder-list">
+            <li class="folder-item active" data-folder="inbox">
+              <span class="folder-icon">&#128229;</span>
+              <span class="folder-name">Inbox</span>
+              <span class="folder-count">49323</span>
+            </li>
+            <li class="folder-item" data-folder="drafts">
+              <span class="folder-icon">&#128196;</span>
+              <span class="folder-name">Drafts</span>
+              <span class="folder-count">9</span>
+            </li>
+            <li class="folder-item" data-folder="templates">
+              <span class="folder-icon">&#128203;</span>
+              <span class="folder-name">Templates</span>
+            </li>
+            <li class="folder-item" data-folder="snoozed">
+              <span class="folder-icon">&#128336;</span>
+              <span class="folder-name">Snoozed</span>
+            </li>
+            <li class="folder-item" data-folder="sent">
+              <span class="folder-icon">&#128228;</span>
+              <span class="folder-name">Sent</span>
+            </li>
+            <li class="folder-item" data-folder="spam">
+              <span class="folder-icon">&#128274;</span>
+              <span class="folder-name">Spam</span>
+            </li>
+            <li class="folder-item" data-folder="trash">
+              <span class="folder-icon">&#128465;</span>
+              <span class="folder-name">Trash</span>
+            </li>
+            <li class="folder-item" data-folder="archive">
+              <span class="folder-icon">&#128193;</span>
+              <span class="folder-name">Archive</span>
+            </li>
+            <li class="folder-item" data-folder="outbox">
+              <span class="folder-icon">&#128228;</span>
+              <span class="folder-name">Outbox</span>
+            </li>
+          </ul>
+          <div class="section-header">
+            <span>TAGS</span>
+            <button title="Add tag">+</button>
+          </div>
+          <ul class="tag-list">
+            <li class="tag-item"><span class="tag-dot" style="background:#f0c040"></span>Marketing</li>
+            <li class="tag-item"><span class="tag-dot" style="background:#4a90e2"></span>Jambav</li>
+            <li class="tag-item"><span class="tag-dot" style="background:#50c878"></span>Client</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Email List Panel -->
+      <div class="email-list-panel">
+        <div class="email-list-header">
+          <div class="folder-title">
+            <span class="folder-title-text">Inbox</span>
+            <span class="unread-badge">49323 Unread emails</span>
+          </div>
+          <div class="list-toolbar">
+          <input type="checkbox" class="select-all" title="Select All" />
+            <button class="toolbar-btn" title="Filter">&#9783; Views</button>
+          <button class="toolbar-btn" title="Attachment">&#128206; Attachment options</button>
+            <button class="toolbar-btn" title="More">&#8942;</button>
+          </div>
+        </div>
+        <div class="email-list" id="emailList">
+          <!-- Emails rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Email Reading Panel -->
+      <div class="email-reading-panel" id="emailReadingPanel">
+        <div class="reading-placeholder">
+          <p>Select an email to read</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- Compose Modal -->
+  <div class="compose-modal" id="composeModal" style="display:none;">
+      <div class="compose-modal-header">
+        <span>New Message</span>
+        <div class="compose-modal-actions">
+          <button onclick="minimizeCompose()" title="Minimize">&#8212;</button>
+          <button onclick="closeCompose()" title="Close">&#10005;</button>
+        </div>
+      </div>
+      <div class="compose-form">
+        <div class="compose-field">
+          <label>To</label>
+          <input type="text" id="composeTo" placeholder="Recipients" />
+        </div>
+        <div class="compose-field">
+          <label>Subject</label>
+          <input type="text" id="composeSubject" placeholder="Subject" />
+        </div>
+        <div class="compose-body">
+          <div id="composeBody" contenteditable="true" class="compose-editor"></div>
+        </div>
+        <div class="compose-toolbar">
+          <button class="compose-send-btn" onclick="sendEmail()">Send</button>
+          <button title="Attach">&#128206;</button>
+          <button title="Emoji">&#128512;</button>
+          <button title="Format">A</button>
+          <button title="Delete" onclick="closeCompose()">&#128465;</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/mail.js"></script>
+  </body>
+  </html>
