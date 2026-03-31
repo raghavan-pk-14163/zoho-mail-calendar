@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoho Calendar</title>
+    <link rel="stylesheet" href="css/calendar.css" />
+    <link rel="stylesheet" href="css/shared.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <aside class="sidebar">
+        <div class="sidebar-logo">&#9993; Mail</div>
+      <nav class="sidebar-nav">
+        <button class="nav-btn" onclick="window.location='index.html'">&#9993; Mail</button>
+        <button class="nav-btn active">&#128197; Calendar</button>
+        <button class="nav-btn">&#10003; ToDo</button>
+        <button class="nav-btn">&#128221; Notes</button>
+        <button class="nav-btn">&#128100; Contacts</button>
+        <button class="nav-btn">&#128278; Bookmarks</button>
+      </nav>
+    </aside>
+    <div class="calendar-side-panel">
+      <div class="new-event-area">
+        <button class="new-event-btn" id="newEventBtn">+ New Event</button>
+        </div>
+        <div class="cal-section">
+          <div class="cal-section-title">MY CALENDARS</div>
+          <ul class="cal-list">
+            <li class="cal-item"><span class="cal-color" style="background:#e04040"></span>Raghav Primary</li>
+            <li class="cal-item"><span class="cal-color" style="background:#aaa"></span>web import</li>
+          <li class="cal-item"><span class="cal-color" style="background:#ddd"></span>untitled</li>
+            <li class="cal-item"><span class="cal-color" style="background:#ddd"></span>Test calendar 4</li>
+          </ul>
+        </div>
+        <div class="cal-section">
+          <div class="cal-section-title">SHARED CALENDARS</div>
+          <ul class="cal-list">
+            <li class="cal-item"><span class="cal-color" style="background:#50c878"></span>Muthusamy K</li>
+            <li class="cal-item"><span class="cal-color" style="background:#ddd"></span>krish1</li>
+            <li class="cal-item"><span class="cal-color" style="background:#50c878"></span>rajakumaran.p</li>
+          </ul>
+        </div>
+        <div class="mini-calendar" id="miniCalendar">
+          <div class="mini-cal-header">
+            <button id="miniPrev">&lsaquo;</button>
+            <span id="miniMonthYear"></span>
+            <button id="miniNext">&rsaquo;</button>
+          </div>
+          <div class="mini-cal-days">S M T W T F S</div>
+        <div class="mini-cal-dates" id="miniDates"></div>
+      </div>
+      <div class="timezone-label">Asia/Kolkata</div>
+    </div>
+    <div class="calendar-main">
+      <div class="cal-toolbar">
+        <button class="today-btn" id="todayBtn">Today</button>
+          <button class="nav-arrow" id="prevBtn">&#10094;</button>
+          <button class="nav-arrow" id="nextBtn">&#10095;</button>
+          <span class="date-range-label" id="dateRangeLabel"></span>
+          <div class="view-selector">
+            <button class="view-btn active" data-view="week">Week</button>
+            <button class="view-btn" data-view="day">Day</button>
+            <button class="view-btn" data-view="month">Month</button>
+          </div>
+          <div class="toolbar-actions">
+            <button class="toolbar-action-btn">Meet Now</button>
+            <button class="toolbar-action-btn">Schedule</button>
+            <button class="toolbar-action-btn">Yet to respond</button>
+        </div>
+      </div>
+      <div class="week-view" id="weekView">
+        <div class="week-header">
+          <div class="time-gutter">GMT+05:30</div>
+            <div class="day-header-row" id="dayHeaderRow"></div>
+          </div>
+          <div class="week-body">
+            <div class="time-column" id="timeColumn"></div>
+            <div class="events-grid" id="eventsGrid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="event-modal" id="eventModal" style="display:none;">
+      <div class="event-modal-header">
+        <span>New Event</span>
+        <button onclick="closeEventModal()">&#10005;</button>
+      </div>
+      <div class="event-form">
+        <input type="text" id="eventTitle" placeholder="Event Title" class="event-title-input" />
+        <div class="event-field">
+          <label>Date &amp; Time</label>
+          <input type="datetime-local" id="eventDateTime" />
+        </div>
+        <div class="event-field">
+          <label>Calendar</label>
+          <select id="eventCalendar">
+            <option>Raghav Primary</option>
+            <option>web import</option>
+        </select>
+        </div>
+        <div class="event-field">
+          <label>Description</label>
+          <textarea id="eventDescription" rows="3" placeholder="Add description..."></textarea>
+        </div>
+        <div class="event-actions">
+          <button class="event-save-btn" onclick="saveEvent()">Save</button>
+          <button class="event-cancel-btn" onclick="closeEventModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/calendar.js"></script>
+  </body>
+  </html>
