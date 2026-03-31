@@ -1,0 +1,80 @@
+/* mail.css - Styles for Zoho Mail UI */
+
+/* Mail Panel (folder sidebar) */
+.mail-panel { width: 220px; background: #fff; border-right: 1px solid #e0e0e0; display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; }
+.compose-area { display: flex; padding: 12px; gap: 4px; }
+.compose-btn { flex: 1; background: #1a73e8; color: #fff; border: none; border-radius: 6px; padding: 10px 16px; font-size: 14px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.compose-btn:hover { background: #1558c0; }
+.compose-dropdown { background: #1a73e8; color: #fff; border: none; border-radius: 6px; padding: 10px 8px; cursor: pointer; }
+.compose-dropdown:hover { background: #1558c0; }
+.folders-section { padding: 8px 0; flex: 1; }
+.section-header { display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+.section-actions { display: flex; gap: 4px; }
+.section-actions button { background: none; border: none; color: #888; cursor: pointer; font-size: 14px; padding: 2px 4px; border-radius: 4px; }
+.section-actions button:hover { background: #f0f0f0; color: #333; }
+.folder-list, .tag-list { margin: 0; }
+.folder-item { display: flex; align-items: center; padding: 7px 12px 7px 16px; cursor: pointer; border-radius: 0 20px 20px 0; margin-right: 8px; gap: 8px; font-size: 13px; }
+.folder-item:hover { background: #f5f5f5; }
+.folder-item.active { background: #e8f4ff; color: #1a73e8; font-weight: 500; }
+.folder-icon { font-size: 15px; }
+.folder-name { flex: 1; }
+.folder-count { font-size: 12px; color: #888; background: #f0f0f0; border-radius: 10px; padding: 1px 6px; }
+.folder-item.active .folder-count { background: #c2e0ff; color: #1a73e8; }
+.tag-item { display: flex; align-items: center; padding: 7px 12px 7px 16px; cursor: pointer; gap: 8px; font-size: 13px; border-radius: 0 20px 20px 0; margin-right: 8px; }
+.tag-item:hover { background: #f5f5f5; }
+.tag-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+/* Email List Panel */
+.email-list-panel { flex: 0 0 320px; background: #fff; border-right: 1px solid #e0e0e0; display: flex; flex-direction: column; overflow: hidden; }
+.email-list-header { padding: 12px 16px; border-bottom: 1px solid #e0e0e0; }
+.folder-title { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.folder-title-text { font-size: 18px; font-weight: 600; color: #333; }
+.unread-badge { font-size: 12px; color: #1a73e8; background: #e8f4ff; border-radius: 10px; padding: 2px 8px; cursor: pointer; }
+.list-toolbar { display: flex; align-items: center; gap: 8px; }
+.select-all { cursor: pointer; }
+.toolbar-btn { background: none; border: 1px solid #e0e0e0; color: #555; border-radius: 4px; padding: 4px 8px; cursor: pointer; font-size: 12px; }
+.toolbar-btn:hover { background: #f5f5f5; }
+.email-list { flex: 1; overflow-y: auto; }
+.email-item { display: flex; align-items: flex-start; padding: 12px 16px; border-bottom: 1px solid #f0f0f0; cursor: pointer; gap: 10px; transition: background 0.1s; }
+.email-item:hover { background: #f9f9f9; }
+.email-item.unread { background: #f0f6ff; }
+.email-item.selected { background: #e8f4ff; }
+.email-avatar { width: 36px; height: 36px; border-radius: 50%; background: #1a73e8; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; flex-shrink: 0; }
+.email-content { flex: 1; min-width: 0; }
+.email-sender { font-size: 13px; font-weight: 600; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.email-subject { font-size: 13px; color: #555; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.email-meta { display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+.email-time { font-size: 12px; color: #888; white-space: nowrap; }
+.email-size { font-size: 11px; color: #aaa; }
+.unread-dot { width: 8px; height: 8px; background: #1a73e8; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+
+/* Email Reading Panel */
+.email-reading-panel { flex: 1; background: #f9f9f9; overflow-y: auto; display: flex; flex-direction: column; }
+.reading-placeholder { flex: 1; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 16px; }
+.email-view { padding: 24px; }
+.email-view-header { margin-bottom: 20px; border-bottom: 1px solid #e0e0e0; padding-bottom: 16px; }
+.email-view-subject { font-size: 22px; font-weight: 600; color: #333; margin-bottom: 12px; }
+.email-view-meta { display: flex; align-items: center; gap: 12px; }
+.email-view-avatar { width: 40px; height: 40px; border-radius: 50%; background: #1a73e8; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; }
+.email-view-info { flex: 1; }
+.email-view-sender { font-weight: 600; font-size: 14px; }
+.email-view-time { font-size: 12px; color: #888; }
+.email-view-body { font-size: 14px; line-height: 1.6; color: #444; white-space: pre-wrap; }
+
+/* Compose Modal */
+.compose-modal { position: fixed; bottom: 0; right: 20px; width: 540px; max-height: 70vh; background: #fff; border-radius: 10px 10px 0 0; box-shadow: 0 4px 24px rgba(0,0,0,0.15); z-index: 1000; display: flex; flex-direction: column; }
+.compose-modal-header { background: #404040; color: #fff; padding: 10px 16px; border-radius: 10px 10px 0 0; display: flex; align-items: center; justify-content: space-between; }
+.compose-modal-actions { display: flex; gap: 8px; }
+.compose-modal-actions button { background: none; border: none; color: #fff; cursor: pointer; font-size: 16px; padding: 2px 6px; border-radius: 4px; }
+.compose-modal-actions button:hover { background: rgba(255,255,255,0.2); }
+.compose-form { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+.compose-field { display: flex; align-items: center; border-bottom: 1px solid #e0e0e0; padding: 8px 16px; gap: 10px; }
+.compose-field label { color: #888; font-size: 13px; width: 50px; flex-shrink: 0; }
+.compose-field input { flex: 1; border: none; outline: none; font-size: 14px; }
+.compose-body { flex: 1; overflow: auto; padding: 12px 16px; }
+.compose-editor { min-height: 200px; outline: none; font-size: 14px; line-height: 1.6; }
+.compose-toolbar { border-top: 1px solid #e0e0e0; padding: 8px 16px; display: flex; align-items: center; gap: 8px; }
+.compose-send-btn { background: #1a73e8; color: #fff; border: none; border-radius: 4px; padding: 8px 20px; cursor: pointer; font-size: 14px; font-weight: 500; }
+.compose-send-btn:hover { background: #1558c0; }
+.compose-toolbar button { background: none; border: none; color: #555; cursor: pointer; font-size: 16px; padding: 4px 8px; border-radius: 4px; }
+.compose-toolbar button:hover { background: #f0f0f0; }
